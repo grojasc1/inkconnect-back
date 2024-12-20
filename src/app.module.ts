@@ -7,9 +7,10 @@ import { ClientModule } from './client/client.module';
 import { BookingModule } from './booking/booking.module';
 import { TattoohouseModule } from './tattoohouse/tattoohouse.module';
 import { ReviewModule } from './review/review.module';
+import { StyleModule } from './style/style.module';
 
 @Module({
-  imports: [UserModule, ArtistModule, ClientModule, BookingModule, TattoohouseModule, ReviewModule],
+  imports: [UserModule, ArtistModule, ClientModule, BookingModule, TattoohouseModule, ReviewModule, StyleModule],
   controllers: [AppController],
   providers: [AppService],
 })
