@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { ArtistEntity } from "../../artist/artist.entity/artist.entity";
+import { ClientEntity } from "../../client/client.entity/client.entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class BookingEntity {
@@ -19,4 +21,10 @@ export class BookingEntity {
 
     @Column()
     status: string;
+
+    @ManyToOne(() => ClientEntity, client => client.bookings)
+    client: ClientEntity;
+
+    @ManyToOne(() => ArtistEntity, artist => artist.bookings)
+    artist: ArtistEntity;
 }
