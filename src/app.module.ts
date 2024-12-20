@@ -8,9 +8,10 @@ import { BookingModule } from './booking/booking.module';
 import { TattoohouseModule } from './tattoohouse/tattoohouse.module';
 import { ReviewModule } from './review/review.module';
 import { StyleModule } from './style/style.module';
+import { ImageModule } from './image/image.module';
 
 @Module({
-  imports: [UserModule, ArtistModule, ClientModule, BookingModule, TattoohouseModule, ReviewModule, StyleModule],
+  imports: [UserModule, ArtistModule, ClientModule, BookingModule, TattoohouseModule, ReviewModule, StyleModule, ImageModule],
   controllers: [AppController],
   providers: [AppService],
 })
