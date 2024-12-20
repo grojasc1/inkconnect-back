@@ -1,3 +1,4 @@
+import { ArtistEntity } from "../../artist/artist.entity/artist.entity";
 import { ClientEntity } from "../../client/client.entity/client.entity";
 import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
@@ -27,4 +28,8 @@ export class UserEntity {
     @OneToOne(() => ClientEntity, client => client.user_id)
     @JoinColumn()
     client: ClientEntity;
+
+    @OneToOne(() => ArtistEntity, artist => artist.user_id)
+    @JoinColumn()
+    artist: ArtistEntity;
 }

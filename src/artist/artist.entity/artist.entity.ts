@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { UserEntity } from "../../user/user.entity/user.entity";
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class ArtistEntity {
@@ -19,4 +20,7 @@ export class ArtistEntity {
 
     @Column()
     social_media: string;
+
+    @OneToOne(() => UserEntity, user => user.artist)
+    user: UserEntity;
 }
