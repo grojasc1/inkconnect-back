@@ -1,3 +1,4 @@
+import { ReviewEntity } from "../../review/review.entity/review.entity";
 import { BookingEntity } from "../../booking/booking.entity/booking.entity";
 import { UserEntity } from "../../user/user.entity/user.entity";
 import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
@@ -21,4 +22,7 @@ export class ClientEntity {
 
     @OneToMany(() => BookingEntity, booking => booking.client_id)
     bookings: BookingEntity[];
+
+    @OneToMany(() => ReviewEntity, review => review.client_id)
+    reviews: ReviewEntity[];
 }

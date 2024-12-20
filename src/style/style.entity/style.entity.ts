@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { ArtistEntity } from "src/artist/artist.entity/artist.entity";
+import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class StyleEntity {
@@ -10,4 +11,7 @@ export class StyleEntity {
 
     @Column()
     description: string;
+
+    @ManyToMany(() => ArtistEntity, artist => artist.styles)
+    artists: ArtistEntity[];
 }

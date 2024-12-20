@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { ArtistEntity } from "src/artist/artist.entity/artist.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class TattoohouseEntity {
@@ -28,4 +29,7 @@ export class TattoohouseEntity {
 
     @Column()
     closing_hours: string;
+
+    @OneToMany(() => ArtistEntity, artist => artist.tattoohouse)
+    artists: ArtistEntity[];
 }
