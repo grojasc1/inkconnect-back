@@ -1,5 +1,6 @@
-import { ArtistEntity } from "src/artist/artist.entity/artist.entity";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { ArtistEntity } from "../../artist/artist.entity/artist.entity";
+import { ImageEntity } from "../../image/image.entity/image.entity";
+import { Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class TattoohouseEntity {
@@ -32,4 +33,8 @@ export class TattoohouseEntity {
 
     @OneToMany(() => ArtistEntity, artist => artist.tattoohouse)
     artists: ArtistEntity[];
+
+    @ManyToMany(() => ImageEntity, image => image.tattooHouses)
+    @JoinTable()
+    images: ImageEntity[];
 }

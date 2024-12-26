@@ -1,3 +1,4 @@
+import { TattoohouseEntity } from "../../tattoohouse/tattoohouse.entity/tattoohouse.entity";
 import { ArtistEntity } from "../../artist/artist.entity/artist.entity";
 import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 
@@ -20,4 +21,8 @@ export class ImageEntity {
 
     @ManyToMany(() => ArtistEntity, artist => artist.images)
     artists: ArtistEntity[];
+
+
+    @ManyToMany(() => TattoohouseEntity, tattoohouse => tattoohouse.images)
+    tattooHouses: TattoohouseEntity[];
 }
